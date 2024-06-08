@@ -43,13 +43,18 @@ static int	handle_not_minus_hex(t_tok *tok, char *hex, unsigned int i,
 		//printf("\ncount_of_zero = %d\n", count_of_zero);
 		//printf("tok->width = %d\n", tok->width);
 		//printf("getnbrlen = %d\n", getnbr_base_len(i, hex, tok));
-		//printf("put space = %d\n", tok->width - count_of_zero - getnbr_base_len(i, hex, tok) - get_sharp(tok));
+		//printf("get_sharp = %d\n", get_sharp(tok, getnbr_base_len(i, hex, tok)));
+
+		//printf("put space = %d\n", tok->width - count_of_zero - getnbr_base_len(i, hex, tok) - get_sharp(tok, getnbr_base_len(i, hex, tok)));
 		count += putspace(tok->width - count_of_zero - getnbr_base_len(i, hex,
 					tok) - get_sharp(tok, getnbr_base_len(i, hex, tok)));
 		//count += putspace(tok->width - count_of_zero - getnbr_base_len(i, hex,
 		//			tok));
 		count += put_sharp(tok, i, identifier);
+		//printf("count = %d\n", count);	
+		//printf("tok->precision - getnbr_base_len(i, hex, tok) = %d\n", tok->precision - getnbr_base_len(i, hex, tok));
 		count += putzero((tok->precision - getnbr_base_len(i, hex, tok)));
+		//printf("count = %d\n", count);	
 	}
 	else
 	{

@@ -16,7 +16,7 @@
 int	put_sharp(t_tok *tok, unsigned int ui, char identifier)
 {
 	int	count;
-
+	// ここは毎回0xを書き込むとは限らない
 	count = 0;
 	if (tok->sharp == 1 && ui != 0)
 	{
@@ -25,6 +25,7 @@ int	put_sharp(t_tok *tok, unsigned int ui, char identifier)
 		else
 			count += putstr("0X", 2);
 	}
+	//printf("in sharp count = %d\n", count);
 	return (count);
 }
 
