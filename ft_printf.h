@@ -48,7 +48,7 @@ int		ft_unslen(unsigned int nbr);
 int		ft_atoi(const char *str);
 void	getnbr_base(unsigned long long nb, char *base, int *num, t_tok *flag);
 int		getnbr_base_len(unsigned int nb, char *base, t_tok *flag);
-int		get_sharp(t_tok *flag);
+int		get_sharp(t_tok *flag, int len);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		char_writer(int args, t_tok *flag);
 int		str_writer(char *s, t_tok *flag);

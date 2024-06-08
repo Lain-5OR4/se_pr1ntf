@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	put_sharp(t_tok *tok, unsigned int ui, char identifier)
 {
@@ -27,12 +28,13 @@ int	put_sharp(t_tok *tok, unsigned int ui, char identifier)
 	return (count);
 }
 
-int	get_sharp(t_tok *tok)
+int	get_sharp(t_tok *tok, int len)
 {
 	int	count;
+	// printf("tok->sharp = %d\n", tok->sharp);	
 
 	count = 0;
-	if (tok->sharp == 1)
+	if (tok->sharp == 1 && len)
 		count += 2;
 	return (count);
 }

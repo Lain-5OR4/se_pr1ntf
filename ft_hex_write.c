@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int	handle_minus_sign_hex(t_tok *tok, char *hex, unsigned int i,
 		char ident)
@@ -39,8 +40,14 @@ static int	handle_not_minus_hex(t_tok *tok, char *hex, unsigned int i,
 		count_of_zero = tok->precision - getnbr_base_len(i, hex, tok);
 		if (count_of_zero < 0)
 			count_of_zero = 0;
+		//printf("\ncount_of_zero = %d\n", count_of_zero);
+		//printf("tok->width = %d\n", tok->width);
+		//printf("getnbrlen = %d\n", getnbr_base_len(i, hex, tok));
+		//printf("put space = %d\n", tok->width - count_of_zero - getnbr_base_len(i, hex, tok) - get_sharp(tok));
 		count += putspace(tok->width - count_of_zero - getnbr_base_len(i, hex,
-					tok) - get_sharp(tok));
+					tok) - get_sharp(tok, getnbr_base_len(i, hex, tok)));
+		//count += putspace(tok->width - count_of_zero - getnbr_base_len(i, hex,
+		//			tok));
 		count += put_sharp(tok, i, identifier);
 		count += putzero((tok->precision - getnbr_base_len(i, hex, tok)));
 	}
@@ -48,7 +55,7 @@ static int	handle_not_minus_hex(t_tok *tok, char *hex, unsigned int i,
 	{
 		count += put_sharp(tok, i, identifier);
 		count += putzero((tok->width - getnbr_base_len(i, hex, tok)
-					- get_sharp(tok)));
+					- get_sharp(tok, getnbr_base_len(i, hex, tok))));
 	}
 	ft_putnbr_base(i, hex, &count, tok);
 	return (count);

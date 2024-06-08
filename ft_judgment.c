@@ -45,6 +45,8 @@ static char	*width_handler(const char *str, t_tok *flag)
 	while ('0' <= str[i] && str[i] <= '9')
 		i++;
 	flag->width = ft_atoi(str);
+	//printf("width = %d\n", flag->width);
+	//printf("str = %s\n", &str[i]);
 	return ((char *)&str[i]);
 }
 
