@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "stdio.h"
+#include <stdio.h>
 
 static char	*flag_handler(const char *str, t_tok *tok)
 {
@@ -65,11 +65,14 @@ static char	*precision_handler(const char *str, t_tok *tok)
 		}
 		*/
 		i++;
-		while(str[i + 1] == '.')
-			i++;
+		//while(str[i + 1] == '.')
+			//i++;
 		//while ('0' <= str[i] && str[i] <= '9')
 			//i++;
 		tok->precision = ft_atoi(&str[i]);
+		if(!tok->precision)
+			return ((char *)&str[i]);
+		// intlenがprecisionが0の時１を返してしまう。
 		return ((char *)&str[i + ft_intlen(tok->precision)]);
 	}
 	return ((char *)&str[i]);
