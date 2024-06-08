@@ -80,12 +80,31 @@ int	main(void)
     printf("i = %d && j = %d\n", i, j);
     printf("------------------------------------------------\n");
 
-    //i = printf("%.s", "");
-    i = 0;
-    j = ft_printf("%.s", "");
-    printf("\n");
+    i = printf("|%.0s|\n", "hello");
+    j = ft_printf("|%.0s|\n", "hello");
+    printf("i = %d && j = %d\n", i, j);
+    printf("------------------------------------------------\n");
+
+    i = printf("|%.0s|\n", "NULL");
+    j = ft_printf("|%.0s|\n", "NULL");
+    printf("i = %d && j = %d\n", i, j);
+    printf("------------------------------------------------\n");
+
+    i = printf("|%.03s|\n", NULL);
+    j = ft_printf("|%.03s|\n", NULL);
+    printf("i = %d && j = %d\n", i, j);
+    printf("------------------------------------------------\n");
+
+    i = printf("|%.09s|\n", NULL);
+    j = ft_printf("|%.09s|\n", NULL);
+    printf("i = %d && j = %d\n", i, j);
+    printf("------------------------------------------------\n");
+
+    i = printf("|%.00s|\n", "\0");
+    j = ft_printf("|%.00s|\n", "\0");
     printf("i = %d && j = %d\n", i, j);
     printf("------------------------------------------------\n");
     return 0;
+
 
 }

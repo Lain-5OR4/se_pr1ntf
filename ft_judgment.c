@@ -69,7 +69,11 @@ static char	*precision_handler(const char *str, t_tok *tok)
 			//i++;
 		//while ('0' <= str[i] && str[i] <= '9')
 			//i++;
+		while(str[i] == '0')
+			i++;
 		tok->precision = ft_atoi(&str[i]);
+		//printf("precision = %d\n", tok->precision);
+		//printf("str = %s\n", &str[i]);
 		if(!tok->precision)
 			return ((char *)&str[i]);
 		// intlenがprecisionが0の時１を返してしまう。

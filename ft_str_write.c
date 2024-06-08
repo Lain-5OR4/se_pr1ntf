@@ -20,6 +20,7 @@ int	str_writer(char *s, t_tok *flag)
 	count = 0;
 	if (!s)
 		s = "(null)";
+	//printf("strwriter -> s = %s\n", s);
 	if (flag->precision > (int)ft_strlen(s))
 		flag->precision = (int)ft_strlen(s);
 	if (flag->minus == 1)
